@@ -1,0 +1,354 @@
+---
+const services = [
+  {
+    index: 0,
+    tag: '01 / Upstream',
+    icon: 'oil_barrel',
+    title: 'Servicios Petroleros Especializados',
+    description: 'Intervención, perforación y soporte operacional en fondo y superficie para pozos petroleros.',
+    items: [
+      'Perforación de pozos (Rig Drilling)',
+      'Intervención y rehabilitación (Workover)',
+      'Well Testing & Pruebas de producción',
+      'Coiled Tubing y servicios de pozo',
+      'Servicios y facilidades de producción temprana',
+      'Mantenimiento industrial mecánico, eléctrico e instrumentación',
+    ],
+    ctaText: 'Solicitar evaluación',
+  },
+  {
+    index: 1,
+    tag: '02 / Transporte',
+    icon: 'local_shipping',
+    title: 'Logística y Movilización Especializada',
+    description: 'Soluciones logísticas de gran envergadura para el traslado eficiente de personal, taladros y cargas críticas.',
+    items: [
+      'Transporte de personal especializado y operativo',
+      'Movilización y mudanza de equipos pesados (taladros, maquinaria)',
+      'Logística integral en zonas remotas y de difícil acceso',
+    ],
+    ctaText: 'Solicitar cotización',
+  },
+  {
+    index: 2,
+    tag: '03 / SIAHO',
+    icon: 'health_and_safety',
+    title: 'Seguridad y Protección Integral del Talento Humano',
+    description: 'Equipamiento homologado y programas para salvaguardar la integridad de la fuerza laboral industrial.',
+    items: [
+      'EPP completos y certificados (normas vigentes)',
+      'Uniformes industriales, overoles y ropa ignífuga (bragas)',
+      'Calzado de seguridad (botas dieléctricas y de puntera)',
+      'Protección craneal (cascos), visual y respiratoria',
+      'Guantes de diversos grados de protección técnica',
+      'Programas de gestión y reposición periódica de EPP',
+    ],
+    ctaText: 'Consultar dotación',
+  },
+  {
+    index: 3,
+    tag: '04 / Campamento',
+    icon: 'restaurant',
+    title: 'Catering, Comida Empacada y Soporte de Campamento',
+    description: 'Alimentación balanceada de alta calidad nutricional y hospitalidad integral para turnos continuos.',
+    items: [
+      'Elaboración y servicio de comida en línea caliente',
+      'Catering industrial empacado para turnos y zonas remotas',
+      'Gestión y administración completa de comedores industriales',
+    ],
+    ctaText: 'Solicitar plan de catering',
+  },
+  {
+    index: 4,
+    tag: '05 / Civil',
+    icon: 'foundation',
+    title: 'Construcción, Mantenimiento y Adecuación',
+    description: 'Desarrollo, refacción y preservación de instalaciones industriales, administrativas y operacionales.',
+    items: [
+      'Construcción y reconstrucción de obras civiles industriales',
+      'Pintura industrial de alta resistencia y de infraestructura',
+      'Demarcación y señalización vial e interna de plantas',
+      'Desmalezamiento y mantenimiento de áreas verdes perimetrales',
+      'Limpieza y mantenimiento de oficinas y sedes administrativas',
+    ],
+    ctaText: 'Solicitar inspección',
+  },
+  {
+    index: 5,
+    tag: '06 / Procura',
+    icon: 'inventory_2',
+    title: 'Suministro de Materiales, Equipos y Piezas',
+    description: 'Cadena de procura nacional e internacional ágil para componentes mecánicos y consumibles corporativos.',
+    items: [
+      'Partes de mantenimiento: tuberías, cabillas, motoreductores',
+      'Papelería, útiles de oficina y suministros administrativos',
+      'Gestión de inventario técnico y reposición programada',
+    ],
+    ctaText: 'Solicitar presupuesto',
+  },
+  {
+    index: 6,
+    tag: '07 / HVAC',
+    icon: 'ac_unit',
+    title: 'Servicios Especializados de Climatización',
+    description: 'Control de temperatura ambiental industrial y de oficina para equipos sensibles y bienestar del personal.',
+    items: [
+      'Suministro de equipos de refrigeración residencial e industrial',
+      'Instalación y puesta en marcha de sistemas de climatización',
+      'Mantenimiento preventivo y correctivo de cuartos y equipos de frío',
+    ],
+    ctaText: 'Solicitar servicio técnico',
+  },
+  {
+    index: 7,
+    tag: '08 / Flotas',
+    icon: 'commute',
+    title: 'Mantenimiento de Flota Liviana y Pesada',
+    description: 'Servicio automotriz y mecánico preventivo para asegurar máxima operatividad y disponibilidad de unidades.',
+    items: [
+      'Diagnóstico computarizado de alta gama',
+      'Gestión de insumos, lubricantes y repuestos genuinos',
+      'Lavado y limpieza especializada de unidades y chasis',
+      'Reparación mecánica y electromecánica en general',
+    ],
+    ctaText: 'Solicitar mantenimiento',
+  },
+];
+---
+
+<section class="py-section-gap bg-surface relative overflow-hidden" id="servicios">
+  <div class="max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div class="text-left max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 mb-3">
+          <span class="w-2 h-2 rounded-full bg-secondary"></span>
+          <span class="font-label-caps text-secondary text-xs uppercase tracking-widest">Catálogo Operativo Especializado</span>
+        </div>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Servicios Industriales y Petroleros</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant">
+          Soluciones técnicas de alto impacto para la industria energética, civil y de operaciones en campo, respaldadas por talento calificado y estándares internacionales.
+        </p>
+      </div>
+
+      <!-- Carousel Controls (Desktop / Tablet) -->
+      <div class="hidden sm:flex items-center gap-3 shrink-0">
+        <button
+          aria-label="Servicio anterior"
+          class="w-12 h-12 rounded-full border border-border-technical bg-surface-container-lowest text-primary hover:bg-secondary hover:text-white hover:border-secondary transition-all shadow-sm flex items-center justify-center group focus:outline-none cursor-pointer"
+          id="services-prev-btn"
+        >
+          <svg class="w-5 h-5 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <button
+          aria-label="Servicio siguiente"
+          class="w-12 h-12 rounded-full border border-border-technical bg-surface-container-lowest text-primary hover:bg-secondary hover:text-white hover:border-secondary transition-all shadow-sm flex items-center justify-center group focus:outline-none cursor-pointer"
+          id="services-next-btn"
+        >
+          <svg class="w-5 h-5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Carousel Wrapper -->
+    <div class="relative w-full">
+      <!-- Horizontal Scrollable Container -->
+      <div
+        class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar pb-6 pt-2 px-1"
+        id="services-carousel"
+      >
+        {services.map((srv) => (
+          <div
+            class="w-[88vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] flex-shrink-0 snap-start flex flex-col"
+            data-index={srv.index}
+          >
+            <div class="group bg-surface-container-lowest rounded-2xl p-7 border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between hover:border-secondary/50 relative overflow-hidden h-full min-h-[460px]">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-secondary/10 to-transparent rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+              
+              <div>
+                <div class="flex items-center justify-between mb-5">
+                  <div class="w-12 h-12 rounded-lg bg-primary text-secondary-fixed flex items-center justify-center shadow-inner group-hover:bg-secondary group-hover:text-white transition-colors">
+                    <span class="material-symbols-outlined text-[26px]">{srv.icon}</span>
+                  </div>
+                  <span class="font-label-caps text-[11px] font-bold px-2.5 py-1 rounded bg-surface-container text-secondary uppercase tracking-wider">
+                    {srv.tag}
+                  </span>
+                </div>
+
+                <h3 class="font-headline-md text-lg text-on-surface font-bold mb-3 leading-snug group-hover:text-secondary transition-colors">
+                  {srv.title}
+                </h3>
+
+                <p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+                  {srv.description}
+                </p>
+
+                <ul class="space-y-2 mb-6 border-t border-border-technical/60 pt-3">
+                  {srv.items.map((item) => (
+                    <li class="flex items-start gap-2 text-xs text-on-surface font-medium">
+                      <span class="material-symbols-outlined text-secondary text-sm shrink-0 mt-0.5">check_circle</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <a
+                class="inline-flex items-center justify-between text-xs font-button text-secondary group-hover:text-primary transition-colors pt-3 border-t border-border-technical mt-auto"
+                href="#contacto"
+              >
+                <span>{srv.ctaText}</span>
+                <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Mobile Navigation Arrows & Indicator -->
+      <div class="flex items-center justify-center sm:hidden mt-3 gap-4">
+        <button
+          aria-label="Servicio anterior"
+          class="w-10 h-10 rounded-full border border-border-technical bg-surface-container-lowest text-primary shadow-sm flex items-center justify-center active:bg-secondary active:text-white cursor-pointer"
+          id="services-prev-btn-mobile"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <span class="font-label-caps text-xs text-on-surface-variant font-medium tracking-wider" id="mobile-carousel-indicator">
+          1 / 8
+        </span>
+        <button
+          aria-label="Servicio siguiente"
+          class="w-10 h-10 rounded-full border border-border-technical bg-surface-container-lowest text-primary shadow-sm flex items-center justify-center active:bg-secondary active:text-white cursor-pointer"
+          id="services-next-btn-mobile"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Pagination Dots Indicator -->
+      <div class="flex items-center justify-center gap-2 mt-6" id="carousel-dots-container">
+        {services.map((_, i) => (
+          <button
+            aria-label={`Ver servicio ${i + 1}`}
+            class={`carousel-dot h-2.5 rounded-full transition-all duration-300 cursor-pointer ${i === 0 ? 'w-8 bg-secondary' : 'w-2.5 bg-outline-variant/60 hover:bg-secondary/60'}`}
+            data-slide={i}
+          ></button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Banner de soporte directo -->
+    <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-industrial-navy-container to-primary text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg border border-white/10">
+      <div class="flex items-center gap-5">
+        <div class="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
+          <span class="material-symbols-outlined text-secondary-container text-3xl">build_circle</span>
+        </div>
+        <div>
+          <h4 class="font-headline-md text-lg text-white font-bold mb-1">
+            ¿Requiere un esquema operativo a la medida de su empresa?
+          </h4>
+          <p class="font-body-sm text-inverse-primary text-xs md:text-sm">
+            Nuestro equipo multidisciplinario estructura planes técnicos personalizados con tiempos de entrega garantizados.
+          </p>
+        </div>
+      </div>
+      <a
+        class="shrink-0 px-6 py-3 rounded-lg bg-secondary text-on-secondary font-button text-button hover:bg-secondary/90 transition-colors shadow"
+        href="#contacto"
+      >
+        Hablar con un Ingeniero
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupServicesCarousel() {
+    const carousel = document.getElementById('services-carousel');
+    const prevBtn = document.getElementById('services-prev-btn');
+    const nextBtn = document.getElementById('services-next-btn');
+    const prevBtnMobile = document.getElementById('services-prev-btn-mobile');
+    const nextBtnMobile = document.getElementById('services-next-btn-mobile');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const mobileIndicator = document.getElementById('mobile-carousel-indicator');
+    const cards = carousel ? carousel.querySelectorAll<HTMLElement>('[data-index]') : [];
+
+    if (!carousel || !cards.length) return;
+
+    const getScrollStep = () => {
+      if (!cards.length) return 320;
+      const cardWidth = cards[0].offsetWidth;
+      const gap = 24; // 1.5rem gap-6
+      return cardWidth + gap;
+    };
+
+    const scrollCarousel = (direction: number) => {
+      const step = getScrollStep();
+      carousel.scrollBy({
+        left: direction * step,
+        behavior: 'smooth',
+      });
+    };
+
+    if (prevBtn) prevBtn.addEventListener('click', () => scrollCarousel(-1));
+    if (nextBtn) nextBtn.addEventListener('click', () => scrollCarousel(1));
+    if (prevBtnMobile) prevBtnMobile.addEventListener('click', () => scrollCarousel(-1));
+    if (nextBtnMobile) nextBtnMobile.addEventListener('click', () => scrollCarousel(1));
+
+    // Dot navigation
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        if (cards[index]) {
+          cards[index].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'start',
+          });
+        }
+      });
+    });
+
+    // Update active dot on scroll
+    let isScrolling: number | undefined;
+    const updateActiveDot = () => {
+      const scrollLeft = carousel.scrollLeft;
+      const step = getScrollStep();
+      let activeIndex = Math.round(scrollLeft / step);
+      if (activeIndex < 0) activeIndex = 0;
+      if (activeIndex >= cards.length) activeIndex = cards.length - 1;
+
+      dots.forEach((d, idx) => {
+        if (idx === activeIndex) {
+          d.classList.add('w-8', 'bg-secondary');
+          d.classList.remove('w-2.5', 'bg-outline-variant/60');
+        } else {
+          d.classList.remove('w-8', 'bg-secondary');
+          d.classList.add('w-2.5', 'bg-outline-variant/60');
+        }
+      });
+
+      if (mobileIndicator) {
+        mobileIndicator.textContent = `${activeIndex + 1} / ${cards.length}`;
+      }
+    };
+
+    carousel.addEventListener('scroll', () => {
+      window.clearTimeout(isScrolling);
+      isScrolling = window.setTimeout(updateActiveDot, 60);
+    });
+
+    // Initial state
+    updateActiveDot();
+  }
+
+  // Initialize on page load and view transitions
+  document.addEventListener('DOMContentLoaded', setupServicesCarousel);
+</script>

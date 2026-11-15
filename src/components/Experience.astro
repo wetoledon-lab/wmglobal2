@@ -1,0 +1,122 @@
+---
+const metrics = [
+  { value: '98.5', suffix: '%', label: 'Disponibilidad Técnica', target: '98.5' },
+  { value: '99', suffix: '%', label: 'Entrega a Tiempo', target: '99' },
+  { value: '24/7', suffix: '', label: 'Soporte Operativo' },
+  { value: '0', suffix: '', label: 'Incidentes Mayores', target: '0' },
+];
+
+const legalFramework = [
+  {
+    icon: 'gavel',
+    title: 'Legislación Vigente',
+    description: 'Operamos bajo estricto cumplimiento de las leyes venezolanas aplicables al sector.',
+  },
+  {
+    icon: 'policy',
+    title: 'Normativas Técnicas',
+    description: 'Adherencia a estándares internacionales (ISO, API, ASME) en todas las ejecuciones.',
+  },
+  {
+    icon: 'shield',
+    title: 'Seguridad Laboral',
+    description: 'Protocolos rigurosos de Seguridad Industrial, Ambiente e Higiene Ocupacional (SIAHO).',
+  },
+];
+---
+
+<section class="py-section-gap bg-industrial-navy-container text-on-primary relative overflow-hidden" id="experiencia">
+  <!-- Decorative subtle grid background -->
+  <div
+    class="absolute inset-0 opacity-5"
+    style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;"
+  ></div>
+
+  <div class="max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="font-headline-lg text-headline-lg text-on-primary mb-4">Respaldo y Solidez</h2>
+      <p class="font-body-md text-body-md text-inverse-primary max-w-2xl mx-auto">
+        Nuestra trayectoria está avalada por métricas operativas de clase mundial y alianzas estratégicas sólidas.
+      </p>
+    </div>
+
+    <!-- Animated Counters -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24">
+      {metrics.map((m) => (
+        <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+          <div class="font-headline-xl text-headline-lg md:text-headline-xl text-secondary-fixed mb-2">
+            {m.target !== undefined ? (
+              <span class="counter" data-target={m.target}>{m.value}</span>
+            ) : (
+              <span>{m.value}</span>
+            )}
+            {m.suffix}
+          </div>
+          <div class="font-label-caps text-inverse-primary uppercase tracking-wider text-xs md:text-sm">
+            {m.label}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Legal Framework -->
+    <div class="bg-surface/10 backdrop-blur-md rounded-xl p-8 border border-white/10">
+      <h3 class="font-headline-md text-headline-md mb-6 text-center text-white">
+        Marco Legal y Conformidad
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        {legalFramework.map((item) => (
+          <div class="p-4 rounded-lg bg-black/20">
+            <span class="material-symbols-outlined text-secondary-fixed text-4xl mb-3">{item.icon}</span>
+            <h4 class="font-button text-button text-on-primary mb-2">{item.title}</h4>
+            <p class="font-body-sm text-body-sm text-inverse-primary">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupCounters() {
+    const counters = document.querySelectorAll<HTMLElement>('.counter');
+    const speed = 200;
+
+    const animateCounters = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const counter = entry.target as HTMLElement;
+          const targetStr = counter.getAttribute('data-target') || '0';
+          const target = parseFloat(targetStr);
+
+          if (target === 0) {
+            counter.innerText = '0';
+            observer.unobserve(counter);
+            return;
+          }
+
+          const updateCount = () => {
+            const current = parseFloat(counter.innerText) || 0;
+            const inc = target / speed;
+
+            if (current < target) {
+              counter.innerText = (Math.ceil((current + inc) * 10) / 10).toString();
+              setTimeout(updateCount, 20);
+            } else {
+              counter.innerText = target.toString();
+            }
+          };
+
+          updateCount();
+          observer.unobserve(counter);
+        }
+      });
+    };
+
+    const counterObserver = new IntersectionObserver(animateCounters, { threshold: 0.5 });
+    counters.forEach((counter) => counterObserver.observe(counter));
+  }
+
+  document.addEventListener('DOMContentLoaded', setupCounters);
+</script>

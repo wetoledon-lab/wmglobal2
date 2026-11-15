@@ -1,0 +1,90 @@
+---
+const navLinks = [
+  { label: 'Inicio', href: '#inicio', active: true },
+  { label: 'Nosotros', href: '#nosotros' },
+  { label: 'Servicios', href: '#servicios' },
+  { label: 'Experiencia', href: '#experiencia' },
+  { label: 'Contacto', href: '#contacto' },
+];
+---
+
+<header class="fixed top-0 w-full z-[100] bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.05)] border-b border-border-technical/60">
+  <div class="min-h-[5rem] py-2 max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop flex items-center justify-between">
+    <a
+      class="inline-flex items-center transition duration-300 hover:opacity-85 hover:scale-105 active:scale-95 py-1"
+      href="#inicio"
+      aria-label="Página de inicio W&M Global"
+    >
+      <img
+        alt="W&M GLOBAL C.A. Logo"
+        class="h-14 sm:h-16 md:h-20 w-auto object-contain"
+        src="/images/logo.png"
+      />
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-8" data-active-classes="text-primary font-bold">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={link.active 
+            ? "transition-colors uppercase tracking-wider text-primary font-bold text-sm" 
+            : "text-button font-button text-on-surface-variant hover:text-primary transition-colors uppercase tracking-wider text-sm"}
+          data-path={link.href.replace('#', '')}
+          aria-current={link.active ? "page" : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <a
+        class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-on-primary text-xs font-label-caps uppercase tracking-wider hover:bg-primary/90 transition-all shadow-sm"
+        href="#contacto"
+      >
+        <span class="material-symbols-outlined text-[16px]">engineering</span>
+        <span>Cotizar Servicios</span>
+      </a>
+
+      <button
+        aria-label="Abrir menú"
+        class="lg:hidden p-2 text-primary focus:outline-none cursor-pointer"
+        id="menu-toggle"
+      >
+        <span class="material-symbols-outlined text-[32px]">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div
+    class="hidden absolute top-20 left-0 w-full bg-surface-container-lowest border-t border-outline-variant flex-col p-6 gap-4 shadow-xl lg:hidden"
+    id="mobile-menu"
+  >
+    {navLinks.map((link) => (
+      <a
+        class="text-headline-md font-headline-md text-on-surface py-2 hover:text-secondary transition-colors"
+        href={link.href}
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+</header>
+
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (toggleBtn && mobileMenu) {
+    toggleBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('mobile-menu-active');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('mobile-menu-active');
+      });
+    });
+  }
+</script>

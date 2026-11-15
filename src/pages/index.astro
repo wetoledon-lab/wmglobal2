@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Experience from '../components/Experience.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="W&M GLOBAL C.A. | Soluciones Integrales para la Industria Energética y de Construcción"
+  description="Soluciones técnicas de alto impacto para la industria energética, petrolera y de construcción. Procura, logística y servicios especializados."
+>
+  <Header />
+
+  <main class="w-full pt-20">
+    <div class="flex flex-col w-full">
+      <Hero />
+      <About />
+      <Services />
+      <Experience />
+      <Contact />
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
